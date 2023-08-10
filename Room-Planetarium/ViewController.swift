@@ -13,6 +13,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBOutlet var switchPlanetButton: UIButton!
+    
+    
+    
+    @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
+        switch currentPlanet {
+        case .mercury: currentPlanet = .venus
+        case .venus: currentPlanet = .earth
+        case .earth: currentPlanet = .moon
+        case .moon: currentPlanet = .mars
+        case .mars: currentPlanet = .mercury
+        }
+        
+        updateDisplayedPlanet()
+    }
+    
     var currentPlanet: PlanetType = .earth
     
     override func viewDidLoad() {
@@ -23,7 +39,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.autoenablesDefaultLighting = true
         updateDisplayedPlanet()
+        
+        // Add a pinch gesture recognizer for zooming
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
+        sceneView.addGestureRecognizer(pinchGesture)
     }
+    
+    @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
+        guard let node = sceneView.scene.rootNode.childNodes.first else { return }
+        
+        if gesture.state == .changed {
+            let pinchScale = gesture.scale
+            let currentScale = node.scale
+            let newScale = SCNVector3(currentScale.x * Float(pinchScale),
+                                      currentScale.y * Float(pinchScale),
+                                      currentScale.z * Float(pinchScale))
+            
+            node.scale = newScale
+            gesture.scale = 1.0
+        }
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,10 +87,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .venus: currentPlanet = .earth
         case .earth: currentPlanet = .moon
         case .moon: currentPlanet = .mars
-        case .mars: currentPlanet = .jupiter
-        case .jupiter: currentPlanet = .neptune
-        case .neptune: currentPlanet = .uranus
-        case .uranus: currentPlanet = .mercury
+        case .mars: currentPlanet = .mercury
         }
         
         updateDisplayedPlanet()
@@ -67,13 +100,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sphere.materials = [material]
 
         let node = SCNNode()
-        node.position = SCNVector3(x: 0, y: 0.1, z: -100)
+        node.position = SCNVector3(x: 0, y: 0.1, z: -20)
         node.geometry = sphere
         
         // Remove the previous planet node
         sceneView.scene.rootNode.childNodes.forEach { $0.removeFromParentNode() }
         
         sceneView.scene.rootNode.addChildNode(node)
+        
+        let planetName: String
+        switch currentPlanet {
+        case .mercury: planetName = "Mercury"
+        case .venus: planetName = "Venus"
+        case .earth: planetName = "Earth"
+        case .moon: planetName = "Moon"
+        case .mars: planetName = "Mars"
+        }
+        switchPlanetButton.setTitle("Switch to \(planetName)", for: .normal)
+    
     }
     
     func planetRadius(for planetType: PlanetType) -> Double {
@@ -83,9 +127,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .earth: return RadiusConstants.earthRadius
         case .moon: return RadiusConstants.moonRadius
         case .mars: return RadiusConstants.marsRadius
-        case .jupiter: return RadiusConstants.jupiterRadius
-        case .neptune: return RadiusConstants.neptuneRadius
-        case .uranus: return RadiusConstants.uranusRadius
         }
     }
 
@@ -96,13 +137,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .earth: return SurfaceConstants.earthSurface
         case .moon: return SurfaceConstants.moonSurface
         case .mars: return SurfaceConstants.marsSurface
-        case .jupiter: return SurfaceConstants.jupiterSurface
-        case .neptune: return SurfaceConstants.neptuneSurface
-        case .uranus: return SurfaceConstants.uranusSurface
         }
     }
 }
 
 enum PlanetType {
-    case mercury, venus, earth, moon, mars, jupiter, neptune, uranus
+    case mercury, venus, earth, moon, mars
 }

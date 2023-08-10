@@ -13,9 +13,6 @@ struct RadiusConstants {
     static let earthRadius: Double = 6.371
     static let moonRadius: Double = 1.737
     static let marsRadius: Double = 3.389
-    static let jupiterRadius: Double = 69.911
-    static let neptuneRadius: Double = 24.622
-    static let uranusRadius: Double = 25.362
     // in kilometers / 1000
 }
 
@@ -25,7 +22,4 @@ struct SurfaceConstants {
     static let earthSurface: String = "art.scnassets/earth.jpg"
     static let moonSurface: String = "art.scnassets/moon.jpg"
     static let marsSurface: String = "art.scnassets/mars.jpg"
-    static let jupiterSurface: String = "art.scnassets/jupiter.jpg"
-    static let neptuneSurface: String = "art.scnassets/neptune.jpg"
-    static let uranusSurface: String = "art.scnassets/uranus.jpg"
 }
