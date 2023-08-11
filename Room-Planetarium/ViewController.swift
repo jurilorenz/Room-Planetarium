@@ -15,7 +15,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var switchPlanetButton: UIButton!
     
+    @IBOutlet var planetLabel: UILabel!
     
+    
+    @IBAction func aboutButtonTapped(_ sender: UIButton) {
+        print("about Button Tapped")
+    }
     
     @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
         switch currentPlanet {
@@ -116,8 +121,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .moon: planetName = "Moon"
         case .mars: planetName = "Mars"
         }
-        switchPlanetButton.setTitle("Switch to \(planetName)", for: .normal)
-    
+        switchPlanetButton.setTitle("NEXT", for: .normal)
+        planetLabel.text = planetName
     }
     
     func planetRadius(for planetType: PlanetType) -> Double {
