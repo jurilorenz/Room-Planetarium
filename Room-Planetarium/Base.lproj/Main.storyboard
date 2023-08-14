@@ -42,9 +42,9 @@
                                             <action selector="aboutButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4QO-zY-m7v"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
                                         <rect key="frame" x="136.33333333333334" y="32.666666666666629" width="120.33333333333334" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -64,16 +64,39 @@
                                     <constraint firstItem="CDZ-c7-aaw" firstAttribute="centerY" secondItem="Y3i-o5-xyV" secondAttribute="centerY" id="ny2-wL-SkY"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFT-7h-Xg6">
+                                <rect key="frame" x="0.0" y="668" width="393" height="50"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rxt-Tf-8hA">
+                                        <rect key="frame" x="8" y="0.0" width="377" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Rxt-Tf-8hA" secondAttribute="bottom" id="6zQ-er-hfc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rxt-Tf-8hA" secondAttribute="trailing" constant="8" id="FrD-L6-u8X"/>
+                                    <constraint firstItem="Rxt-Tf-8hA" firstAttribute="top" secondItem="yFT-7h-Xg6" secondAttribute="top" id="PZ5-pW-5yO"/>
+                                    <constraint firstAttribute="height" constant="50" id="ilo-Jb-WWH"/>
+                                    <constraint firstItem="Rxt-Tf-8hA" firstAttribute="leading" secondItem="yFT-7h-Xg6" secondAttribute="leading" constant="8" id="yRK-UJ-1fM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="W67-jE-U7d" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="5VU-fG-2Ck"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="W67-jE-U7d" secondAttribute="bottom" id="6Si-u4-2pd"/>
+                            <constraint firstItem="yFT-7h-Xg6" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="QIk-k1-9Vh"/>
+                            <constraint firstItem="W67-jE-U7d" firstAttribute="top" secondItem="yFT-7h-Xg6" secondAttribute="bottom" id="iRP-fD-kz6"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="W67-jE-U7d" secondAttribute="trailing" id="szZ-CX-e5S"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="yFT-7h-Xg6" secondAttribute="trailing" id="uuW-PV-oFN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutText" destination="Rxt-Tf-8hA" id="xmn-Iw-fJi"/>
                         <outlet property="planetLabel" destination="Y3i-o5-xyV" id="BQB-Lk-V1S"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <outlet property="switchPlanetButton" destination="CDZ-c7-aaw" id="Kor-wr-QHT"/>
@@ -85,6 +108,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

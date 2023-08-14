@@ -17,9 +17,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var planetLabel: UILabel!
     
+    @IBOutlet var aboutText: UITextView!
+    
+    var currentFactIndex: Int = 0
     
     @IBAction func aboutButtonTapped(_ sender: UIButton) {
-        print("about Button Tapped")
+        aboutText.alpha = 1
+        let facts = PlanetFacts.facts(for: currentPlanet)
+        if currentFactIndex < facts.count {
+            aboutText.text = facts[currentFactIndex]
+            currentFactIndex += 1
+        } else {
+            currentFactIndex = 0
+            aboutText.text = facts.first
+        }
     }
     
     @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
@@ -30,7 +41,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .moon: currentPlanet = .mars
         case .mars: currentPlanet = .mercury
         }
-        
+        aboutText.alpha = 0
         updateDisplayedPlanet()
     }
     

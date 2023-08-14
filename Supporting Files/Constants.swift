@@ -25,6 +25,15 @@ struct SurfaceConstants {
 }
 
 struct PlanetFacts {
+    static func facts(for planetType: PlanetType) -> [String] {
+        switch planetType {
+        case .mercury: return mercuryFacts
+        case .venus: return venusFacts
+        case .earth: return earthFacts
+        case .moon: return moonFacts
+        case .mars: return marsFacts
+        }
+    }
     static let mercuryFacts = [
         "Mercury is the smallest planet in our solar system.",
         "A day on Mercury is longer than its year.",
@@ -65,6 +74,7 @@ struct PlanetFacts {
     ]
     
     static let moonFacts = [
+        "The Moon is Earth's only natural satellite.",
         "It is about 1/6th the size of Earth.",
         "The Moon's gravity affects Earth's tides.",
         "There are dark, flat areas on the Moon's surface called maria.",
@@ -77,6 +87,7 @@ struct PlanetFacts {
     ]
     
     static let marsFacts = [
+        "Mars is often called the 'Red Planet' due to its reddish appearance.",
         "It has the tallest volcano and deepest, longest canyon in the solar system.",
         "Scientists have found evidence of liquid water on Mars in the past.",
         "Mars has polar ice caps that consist mainly of water and carbon dioxide.",
