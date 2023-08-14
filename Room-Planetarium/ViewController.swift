@@ -35,6 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     var currentPlanet: PlanetType = .earth
+    var lastPanLocation: CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Add a pinch gesture recognizer for zooming
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(_:)))
         sceneView.addGestureRecognizer(pinchGesture)
+        
+        // Add a pan gesture recognizer for rotation
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
+        sceneView.addGestureRecognizer(panGesture)
+
     }
     
     @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
@@ -65,6 +71,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
 
+    @objc func handlePan(_ gesture: UIPanGestureRecognizer) {
+        guard let node = sceneView.scene.rootNode.childNodes.first else { return }
+
+        if gesture.state == .changed {
+            let location = gesture.location(in: sceneView)
+            if let lastLocation = lastPanLocation {
+                let deltaX = Float(location.x - lastLocation.x)
+                let deltaY = Float(location.y - lastLocation.y)
+                
+                // Adjust the rotation angles based on gesture movement
+                node.eulerAngles.y -= deltaX * 0.01
+                node.eulerAngles.x -= deltaY * 0.01
+                
+                // Limit vertical rotation to avoid flipping
+                let minVerticalAngle: Float = -Float.pi / 2.0
+                let maxVerticalAngle: Float = Float.pi / 2.0
+                node.eulerAngles.x = max(min(node.eulerAngles.x, maxVerticalAngle), minVerticalAngle)
+            }
+            lastPanLocation = location
+        } else if gesture.state == .ended {
+            lastPanLocation = nil
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -81,21 +110,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-        // Cycle through planet types and update displayed planet
-        switch currentPlanet {
-        case .mercury: currentPlanet = .venus
-        case .venus: currentPlanet = .earth
-        case .earth: currentPlanet = .moon
-        case .moon: currentPlanet = .mars
-        case .mars: currentPlanet = .mercury
-        }
-        
-        updateDisplayedPlanet()
     }
     
     func updateDisplayedPlanet() {
