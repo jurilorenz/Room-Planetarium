@@ -223,7 +223,6 @@
                         <outlet property="aboutText" destination="Rxt-Tf-8hA" id="xmn-Iw-fJi"/>
                         <outlet property="planetLabel" destination="Y3i-o5-xyV" id="BQB-Lk-V1S"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
-                        <outlet property="switchPlanetButton" destination="CDZ-c7-aaw" id="Kor-wr-QHT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

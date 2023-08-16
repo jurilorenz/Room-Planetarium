@@ -13,8 +13,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
-    @IBOutlet var switchPlanetButton: UIButton!
-    
     @IBOutlet var planetLabel: UILabel!
     
     @IBOutlet var aboutText: UITextView!
@@ -146,7 +144,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .moon: planetName = "Moon"
         case .mars: planetName = "Mars"
         }
-        switchPlanetButton.setTitle("NEXT", for: .normal)
         planetLabel.text = planetName
     }
     
