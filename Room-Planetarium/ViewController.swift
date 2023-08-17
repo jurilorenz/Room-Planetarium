@@ -17,6 +17,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var aboutText: UITextView!
     
+    @IBOutlet weak var bigRight: UIButton!
+    
+    @IBOutlet weak var bigLeft: UIButton!
+    
+    @IBOutlet weak var smallRight: UIButton!
+    
+    @IBOutlet weak var smallLeft: UIButton!
+    
     var currentFactIndex: Int = 0
     
     @IBAction func aboutButtonTapped(_ sender: UIButton) {
@@ -48,6 +56,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bigRight.backgroundColor = UIColor.init(red: 105/255, green: 127/255, blue: 67/255, alpha: 1)
+        bigRight.layer.cornerRadius = 25.0
+        bigRight.tintColor = UIColor.init(red: 37/255, green: 58/255, blue: 113/255, alpha: 1)
+        
+        bigLeft.backgroundColor = UIColor.init(red: 105/255, green: 127/255, blue: 67/255, alpha: 1)
+        bigLeft.layer.cornerRadius = 25.0
+        bigLeft.tintColor = UIColor.init(red: 37/255, green: 58/255, blue: 113/255, alpha: 1)
+        
+        smallRight.backgroundColor = UIColor.init(red: 196/255, green: 197/255, blue: 194/255, alpha: 1)
+        smallRight.layer.cornerRadius = 25.0
+        smallRight.tintColor = UIColor.init(red: 148/255, green: 146/255, blue: 141/255, alpha: 1)
+        
+        smallLeft.backgroundColor = UIColor.init(red: 196/255, green: 197/255, blue: 194/255, alpha: 1)
+        smallLeft.layer.cornerRadius = 25.0
+        smallLeft.tintColor = UIColor.init(red: 148/255, green: 146/255, blue: 141/255, alpha: 1)
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -167,6 +191,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
     }
 }
+
 
 enum PlanetType {
     case mercury, venus, earth, moon, mars
