@@ -57,21 +57,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bigRight.backgroundColor = UIColor.init(red: 105/255, green: 127/255, blue: 67/255, alpha: 1)
-        bigRight.layer.cornerRadius = 25.0
-        bigRight.tintColor = UIColor.init(red: 37/255, green: 58/255, blue: 113/255, alpha: 1)
-        
-        bigLeft.backgroundColor = UIColor.init(red: 105/255, green: 127/255, blue: 67/255, alpha: 1)
-        bigLeft.layer.cornerRadius = 25.0
-        bigLeft.tintColor = UIColor.init(red: 37/255, green: 58/255, blue: 113/255, alpha: 1)
-        
-        smallRight.backgroundColor = UIColor.init(red: 196/255, green: 197/255, blue: 194/255, alpha: 1)
-        smallRight.layer.cornerRadius = 25.0
-        smallRight.tintColor = UIColor.init(red: 148/255, green: 146/255, blue: 141/255, alpha: 1)
-        
-        smallLeft.backgroundColor = UIColor.init(red: 196/255, green: 197/255, blue: 194/255, alpha: 1)
-        smallLeft.layer.cornerRadius = 25.0
-        smallLeft.tintColor = UIColor.init(red: 148/255, green: 146/255, blue: 141/255, alpha: 1)
+        configureBigButton(bigRight, cornerRadius: 25.0)
+        configureBigButton(bigLeft, cornerRadius: 25.0)
+        configureSmallButton(smallRight, cornerRadius: 25.0)
+        configureSmallButton(smallLeft, cornerRadius: 25.0)
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -143,6 +132,24 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    func configureBigButton(_ button: UIButton, cornerRadius: CGFloat) {
+        let backgroundColor = UIColor(red: 105/255, green: 127/255, blue: 67/255, alpha: 1)
+        let tintColor = UIColor(red: 37/255, green: 58/255, blue: 113/255, alpha: 1)
+        
+        button.backgroundColor = backgroundColor
+        button.layer.cornerRadius = cornerRadius
+        button.tintColor = tintColor
+    }
+    
+    func configureSmallButton(_ button: UIButton, cornerRadius: CGFloat) {
+        let backgroundColor = UIColor(red: 196/255, green: 197/255, blue: 194/255, alpha: 1)
+        let tintColor = UIColor(red: 148/255, green: 146/255, blue: 141/255, alpha: 1)
+        
+        button.backgroundColor = backgroundColor
+        button.layer.cornerRadius = cornerRadius
+        button.tintColor = tintColor
     }
     
     func updateDisplayedPlanet() {
