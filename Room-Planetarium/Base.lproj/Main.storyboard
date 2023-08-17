@@ -53,7 +53,7 @@
                                         <color key="tintColor" red="0.58039218189999997" green="0.57254904510000004" blue="0.55294120309999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="&lt;" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="33"/>
+                                            <fontDescription key="titleFontDescription" name="GranthaSangamMN-Bold" family="Grantha Sangam MN" pointSize="25"/>
                                             <color key="baseForegroundColor" red="0.76862752440000004" green="0.77254903320000001" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -69,7 +69,7 @@
                                         <color key="tintColor" red="0.58039218189999997" green="0.57254904510000004" blue="0.55294120309999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="&gt;" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="33"/>
+                                            <fontDescription key="titleFontDescription" name="GranthaSangamMN-Bold" family="Grantha Sangam MN" pointSize="25"/>
                                             <color key="baseForegroundColor" red="0.76862752440000004" green="0.77254903320000001" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -105,7 +105,7 @@
                                         <color key="tintColor" red="0.14509806040000001" green="0.22745099660000001" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="&lt;" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="55"/>
+                                            <fontDescription key="titleFontDescription" name="GranthaSangamMN-Bold" family="Grantha Sangam MN" pointSize="30"/>
                                             <color key="baseForegroundColor" red="0.41176474089999998" green="0.49803921579999999" blue="0.26274511220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -116,15 +116,15 @@
                                         <rect key="frame" x="97" y="0.0" width="199" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
-                                                <rect key="frame" x="53.666666666666664" y="30" width="91.666666666666686" height="20"/>
+                                                <rect key="frame" x="53.666666666666664" y="15" width="91.666666666666686" height="20"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Y3i-o5-xyV" secondAttribute="bottom" id="5mp-iu-usG"/>
                                             <constraint firstItem="Y3i-o5-xyV" firstAttribute="centerX" secondItem="L8w-Be-OHM" secondAttribute="centerX" id="cpS-bQ-Poe"/>
+                                            <constraint firstItem="Y3i-o5-xyV" firstAttribute="centerY" secondItem="L8w-Be-OHM" secondAttribute="centerY" id="dZI-B4-N4C"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDZ-c7-aaw" userLabel="Big Right">
@@ -136,7 +136,7 @@
                                         <color key="tintColor" red="0.14509806040000001" green="0.22745099660000001" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="&gt;" subtitle="" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="56"/>
+                                            <fontDescription key="titleFontDescription" name="GranthaSangamMN-Bold" family="Grantha Sangam MN" pointSize="30"/>
                                             <color key="baseForegroundColor" red="0.41176474089999998" green="0.49803921579999999" blue="0.26274511220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
