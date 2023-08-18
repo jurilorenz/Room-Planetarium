@@ -30,26 +30,49 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func aboutButtonTapped(_ sender: UIButton) {
         aboutText.alpha = 1
         let facts = PlanetFacts.facts(for: currentPlanet)
-        if currentFactIndex < facts.count {
-            aboutText.text = facts[currentFactIndex]
+        
+        if sender.titleLabel?.text == ">" {
             currentFactIndex += 1
-        } else {
-            currentFactIndex = 0
-            aboutText.text = facts.first
+            if currentFactIndex >= facts.count {
+                currentFactIndex = 0
+            }
+        } else if sender.titleLabel?.text == "<" {
+            currentFactIndex -= 1
+            if currentFactIndex < 0 {
+                currentFactIndex = facts.count - 1
+            }
+        }
+        
+        if currentFactIndex >= 0 && currentFactIndex < facts.count {
+            aboutText.text = facts[currentFactIndex]
         }
     }
     
     @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
-        switch currentPlanet {
-        case .mercury: currentPlanet = .venus
-        case .venus: currentPlanet = .earth
-        case .earth: currentPlanet = .moon
-        case .moon: currentPlanet = .mars
-        case .mars: currentPlanet = .mercury
+        var newPlanet: PlanetType = .mercury
+            
+            if sender.titleLabel?.text == ">" {
+                switch currentPlanet {
+                case .mercury: newPlanet = .venus
+                case .venus: newPlanet = .earth
+                case .earth: newPlanet = .moon
+                case .moon: newPlanet = .mars
+                case .mars: newPlanet = .mercury
+                }
+            } else if sender.titleLabel?.text == "<" {
+                switch currentPlanet {
+                case .mercury: newPlanet = .mars
+                case .venus: newPlanet = .mercury
+                case .earth: newPlanet = .venus
+                case .moon: newPlanet = .earth
+                case .mars: newPlanet = .moon
+                }
+            }
+            
+            currentPlanet = newPlanet
+            aboutText.alpha = 0
+            updateDisplayedPlanet()
         }
-        aboutText.alpha = 0
-        updateDisplayedPlanet()
-    }
     
     var currentPlanet: PlanetType = .earth
     var lastPanLocation: CGPoint?

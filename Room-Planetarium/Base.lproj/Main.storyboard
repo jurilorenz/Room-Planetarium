@@ -73,7 +73,7 @@
                                             <color key="baseForegroundColor" red="0.76862752440000004" green="0.77254903320000001" blue="0.7607843876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="switchPlanetButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="rNB-Ak-EaO"/>
+                                            <action selector="aboutButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ddT-f2-1eN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -116,14 +116,14 @@
                                             <color key="baseForegroundColor" red="0.41176474089999998" green="0.49803921579999999" blue="0.26274511220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="aboutButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4QO-zY-m7v"/>
+                                            <action selector="switchPlanetButtonTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="HXF-LY-e7F"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8w-Be-OHM">
                                         <rect key="frame" x="97" y="0.0" width="199" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
-                                                <rect key="frame" x="53.666666666666664" y="15" width="91.666666666666686" height="20"/>
+                                                <rect key="frame" x="53.666666666666657" y="15" width="91.666666666666686" height="20"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
