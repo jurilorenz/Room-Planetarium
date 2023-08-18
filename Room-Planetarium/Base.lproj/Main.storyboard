@@ -104,8 +104,15 @@
                                         </constraints>
                                         <color key="tintColor" red="0.14509806040000001" green="0.22745099660000001" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="&lt;" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="55"/>
+                                        <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="&lt;">
+                                                    <attributes>
+                                                        <font key="NSFont" size="55" name="Chalkduster"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.69999999999999996" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <color key="baseForegroundColor" red="0.41176474089999998" green="0.49803921579999999" blue="0.26274511220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -116,15 +123,15 @@
                                         <rect key="frame" x="97" y="0.0" width="199" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
-                                                <rect key="frame" x="53.666666666666664" y="30" width="91.666666666666686" height="20"/>
+                                                <rect key="frame" x="53.666666666666664" y="15" width="91.666666666666686" height="20"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Y3i-o5-xyV" secondAttribute="bottom" id="5mp-iu-usG"/>
-                                            <constraint firstItem="Y3i-o5-xyV" firstAttribute="centerX" secondItem="L8w-Be-OHM" secondAttribute="centerX" id="cpS-bQ-Poe"/>
+                                            <constraint firstItem="Y3i-o5-xyV" firstAttribute="centerX" secondItem="L8w-Be-OHM" secondAttribute="centerX" id="MYc-Kv-Imy"/>
+                                            <constraint firstItem="Y3i-o5-xyV" firstAttribute="centerY" secondItem="L8w-Be-OHM" secondAttribute="centerY" id="lwJ-KP-7GC"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDZ-c7-aaw" userLabel="Big Right">
@@ -135,8 +142,15 @@
                                         </constraints>
                                         <color key="tintColor" red="0.14509806040000001" green="0.22745099660000001" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="&gt;" subtitle="" cornerStyle="capsule">
-                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="56"/>
+                                        <buttonConfiguration key="configuration" style="filled" subtitle="" cornerStyle="capsule">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="&gt;">
+                                                    <attributes>
+                                                        <font key="NSFont" size="56" name="Chalkduster"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.69999999999999996" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <color key="baseForegroundColor" red="0.41176474089999998" green="0.49803921579999999" blue="0.26274511220000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
