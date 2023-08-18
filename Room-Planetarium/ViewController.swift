@@ -28,7 +28,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var currentFactIndex: Int = 0
     
     @IBAction func aboutButtonTapped(_ sender: UIButton) {
-        aboutText.alpha = 1
+        
         let facts = PlanetFacts.facts(for: currentPlanet)
         
         if sender.titleLabel?.text == ">" {
@@ -70,7 +70,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             
             currentPlanet = newPlanet
-            aboutText.alpha = 0
+        
+            // Update the aboutText content after switching the planet
+            let facts = PlanetFacts.facts(for: currentPlanet)
+            currentFactIndex = 0 // Reset the fact index
+            aboutText.text = facts[currentFactIndex] // Display the first fact for the new planet
+        
             updateDisplayedPlanet()
         }
     
@@ -126,8 +131,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 let deltaY = Float(location.y - lastLocation.y)
                 
                 // Adjust the rotation angles based on gesture movement
-                node.eulerAngles.y -= deltaX * 0.01
-                node.eulerAngles.x -= deltaY * 0.01
+                node.eulerAngles.y += deltaX * 0.01  // Reverse the sign for X-axis rotation
+                node.eulerAngles.x += deltaY * 0.01  // Reverse the sign for Y-axis rotation
                 
                 // Limit vertical rotation to avoid flipping
                 let minVerticalAngle: Float = -Float.pi / 2.0
@@ -139,6 +144,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             lastPanLocation = nil
         }
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -219,6 +225,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         planetLabel.text = planetName
     }
+
     
     func planetRadius(for planetType: PlanetType) -> Double {
         switch planetType {
