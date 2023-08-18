@@ -26,7 +26,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHH-7g-UbB">
                                         <rect key="frame" x="56" y="0.0" width="281" height="70"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Earth's atmosphere scatters blue light, which is why the sky appears blue." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rxt-Tf-8hA">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The Martian day is called a 'sol', and it is only slightly longer than a day on Earth." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rxt-Tf-8hA">
                                                 <rect key="frame" x="0.0" y="9" width="281" height="52"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -123,7 +123,7 @@
                                         <rect key="frame" x="97" y="0.0" width="199" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
-                                                <rect key="frame" x="53.666666666666657" y="15" width="91.666666666666686" height="20"/>
+                                                <rect key="frame" x="53.666666666666664" y="15" width="91.666666666666686" height="20"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
