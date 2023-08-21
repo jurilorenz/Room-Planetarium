@@ -25,7 +25,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet weak var smallLeft: UIButton!
     
-    var currentFactIndex: Int = 0
+    @IBOutlet weak var hintLabel: UILabel!
     
     @IBAction func aboutButtonTapped(_ sender: UIButton) {
         
@@ -50,6 +50,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
         var newPlanet: PlanetType = .mercury
+        if !hasTappedSwitchButton {
+            hintLabel.text = "Compare celestial body sizes.\nNotice the difference when you switch."
+            hintLabel.font = UIFont.systemFont(ofSize: 20) // Adjust the font size as needed
+            hintLabel.alpha = 0
+            hasTappedSwitchButton = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                // Animate hint label's alpha to 1 in 1 second
+                UIView.animate(withDuration: 1.0) {
+                    self.hintLabel.alpha = 1.0
+                }
+            }
+            
+            // Schedule a task to hide the hint label after 6 seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                // Animate hint label's alpha back to 0 in 1 second
+                UIView.animate(withDuration: 1.0) {
+                    self.hintLabel.alpha = 0.0
+                }
+            }
+            
+            
+        } else {
             
             if sender.titleLabel?.text == ">" {
                 switch currentPlanet {
@@ -68,6 +91,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 case .mars: newPlanet = .moon
                 }
             }
+        }
             
             currentPlanet = newPlanet
         
@@ -81,6 +105,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     var currentPlanet: PlanetType = .earth
     var lastPanLocation: CGPoint?
+    var currentFactIndex: Int = 0
+    var hasTappedSwitchButton = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +129,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Add a pan gesture recognizer for rotation
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:)))
         sceneView.addGestureRecognizer(panGesture)
-
+        
+        // Set up rounded corners for the text view
+        aboutText.layer.cornerRadius = 10
+        aboutText.clipsToBounds = true // This ensures that the content inside stays within the rounded corners
     }
     
     @objc func handlePinch(_ gesture: UIPinchGestureRecognizer) {
@@ -162,6 +191,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        hintLabel.layer.cornerRadius = 10 // Adjust the corner radius value as needed
+        hintLabel.clipsToBounds = true // This ensures that the content inside stays within the rounded corners
+    
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            // Animate hint label's alpha to 1 in 1 second
+            UIView.animate(withDuration: 1.0) {
+                self.hintLabel.alpha = 1.0
+            }
+        }
+        
+        // Schedule a task to hide the hint label after 6 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+            // Animate hint label's alpha back to 0 in 1 second
+            UIView.animate(withDuration: 1.0) {
+                self.hintLabel.alpha = 0.0
+            }
+        }
+    }
+    
     
     func configureBigButtons(_ button: UIButton, cornerRadius: CGFloat) {
         let backgroundColor = UIColor(red: 105/255, green: 127/255, blue: 67/255, alpha: 1)

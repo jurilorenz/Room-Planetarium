@@ -26,13 +26,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHH-7g-UbB">
                                         <rect key="frame" x="56" y="0.0" width="281" height="70"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The Martian day is called a 'sol', and it is only slightly longer than a day on Earth." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rxt-Tf-8hA">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Roughly half of the oxygen production on Earth comes from the ocean." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rxt-Tf-8hA">
                                                 <rect key="frame" x="0.0" y="9" width="281" height="52"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="391-h3-i3H"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" red="0.14509806040000001" green="0.22745099660000001" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -122,10 +122,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8w-Be-OHM">
                                         <rect key="frame" x="97" y="0.0" width="199" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mercury" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
-                                                <rect key="frame" x="53.666666666666664" y="15" width="91.666666666666686" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3i-o5-xyV">
+                                                <rect key="frame" x="70.333333333333343" y="15" width="58.333333333333343" height="20"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.14509806040000001" green="0.22745099660000001" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -172,10 +172,21 @@
                                     <constraint firstItem="G5p-K7-Tau" firstAttribute="leading" secondItem="W67-jE-U7d" secondAttribute="leading" constant="27" id="ygA-aX-mjT"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rotate and zoom the celestial body" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3l-Ud-faY">
+                                <rect key="frame" x="86" y="599" width="221" height="39"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="A3c-rD-dbC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="W67-jE-U7d" firstAttribute="top" secondItem="P3l-Ud-faY" secondAttribute="bottom" constant="25" id="0Na-E4-LeU"/>
                             <constraint firstItem="yFT-7h-Xg6" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="37X-mh-G16"/>
                             <constraint firstItem="yFT-7h-Xg6" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="Ar7-IX-OWK"/>
                             <constraint firstItem="W67-jE-U7d" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="OB9-CX-seF"/>
@@ -188,6 +199,7 @@
                             <constraint firstItem="yFT-7h-Xg6" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="iml-f4-kV2"/>
                             <constraint firstItem="W67-jE-U7d" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="mKC-pj-gIQ"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="bottom" secondItem="yFT-7h-Xg6" secondAttribute="bottom" constant="15" id="pNx-7L-opY"/>
+                            <constraint firstItem="P3l-Ud-faY" firstAttribute="centerX" secondItem="U0K-SW-4ec" secondAttribute="centerX" id="rcY-fy-Tfx"/>
                             <constraint firstItem="yFT-7h-Xg6" firstAttribute="top" secondItem="W67-jE-U7d" secondAttribute="bottom" constant="20" id="zOy-iI-DZw"/>
                         </constraints>
                     </view>
@@ -195,6 +207,7 @@
                         <outlet property="aboutText" destination="Rxt-Tf-8hA" id="xmn-Iw-fJi"/>
                         <outlet property="bigLeft" destination="G5p-K7-Tau" id="6pf-zw-wpM"/>
                         <outlet property="bigRight" destination="CDZ-c7-aaw" id="Beb-ie-pab"/>
+                        <outlet property="hintLabel" destination="P3l-Ud-faY" id="1r7-q3-gYA"/>
                         <outlet property="planetLabel" destination="Y3i-o5-xyV" id="BQB-Lk-V1S"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
                         <outlet property="smallLeft" destination="IXr-Kj-RtU" id="Y0R-0L-xYQ"/>
@@ -207,9 +220,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
