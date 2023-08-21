@@ -140,7 +140,7 @@
                                             <constraint firstAttribute="height" constant="50" id="1Lo-jF-Vlm"/>
                                             <constraint firstAttribute="width" constant="50" id="EuY-uW-Zpz"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.14509806040000001" green="0.22745099660000001" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.14509803921568626" green="0.22745098039215686" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" subtitle="" cornerStyle="capsule">
                                             <attributedString key="attributedTitle">
