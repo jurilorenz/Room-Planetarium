@@ -108,8 +108,66 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var currentFactIndex: Int = 0
     var hasTappedSwitchButton = false
     
+    private let imageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        imageView.image = UIImage(named: "LaunchImage")
+        imageView.alpha = 0.8
+        return imageView
+    }()
+    
+    private let imageBackground: UIImageView = {
+        let imageBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: 2000, height: 2000))
+        imageBackground.backgroundColor = UIColor(red: 37/255, green: 58/255, blue: 113/255, alpha: 1)
+        return imageBackground
+    }()
+    
+    private var isFinishedTypingNumber: Bool = true
+    
+    private var player: AVAudioPlayer!
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        imageView.center = view.center
+        imageBackground.center = view.center
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+            self.animate()
+        })
+    }
+    
+    private func animate() {
+        UIView.animate(withDuration: 10, animations: {
+            let size = self.view.frame.size.width * 0.01
+            let diffX = size - self.view.frame.size.width
+            let diffY = self.view.frame.size.height - size
+            
+            self.imageView.frame = CGRect(
+                x: -(diffX/2),
+                y: diffY/2,
+                width: size,
+                height: size
+                )
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+20, execute: {
+            UIView.animate(withDuration: 10, animations: {
+                
+                self.imageView.alpha = 0
+                self.imageBackground.alpha = 0
+            })
+        })
+
+    
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(imageBackground)
+        view.addSubview(imageView)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+           // self.playSound(soundName: "+/-")
+        })
         
         configureBigButtons(bigRight, cornerRadius: 25.0)
         configureBigButtons(bigLeft, cornerRadius: 25.0)
