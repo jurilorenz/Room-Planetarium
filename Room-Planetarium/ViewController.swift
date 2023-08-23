@@ -8,6 +8,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import AVFoundation
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -46,6 +47,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if currentFactIndex >= 0 && currentFactIndex < facts.count {
             aboutText.text = facts[currentFactIndex]
         }
+        
+        // Call the playSound method with the sound file name "switch"
+        playSound(soundName: "switch")
     }
     
     @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
@@ -355,6 +359,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .earth: return SurfaceConstants.earthSurface
         case .moon: return SurfaceConstants.moonSurface
         case .mars: return SurfaceConstants.marsSurface
+        }
+    }
+    
+    func playSound(soundName: String) {
+        guard let soundURL = Bundle.main.url(forResource: soundName, withExtension: "wav") else {
+            print("Sound file not found: \(soundName)")
+            return
+        }
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: soundURL)
+            player.prepareToPlay()
+            player.play()
+        } catch {
+            print("Error playing sound: \(error.localizedDescription)")
         }
     }
 }
