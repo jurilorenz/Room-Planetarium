@@ -115,7 +115,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private let imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         imageView.image = UIImage(named: "LaunchImage")
-        imageView.alpha = 0.8
         return imageView
     }()
     
@@ -140,8 +139,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     private func animate() {
-        UIView.animate(withDuration: 10, animations: {
-            let size = self.view.frame.size.width * 0.01
+        UIView.animate(withDuration: 20, animations: {
+            let size = self.view.frame.size.width * 0.001
             let diffX = size - self.view.frame.size.width
             let diffY = self.view.frame.size.height - size
             
@@ -154,7 +153,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now()+20, execute: {
-            UIView.animate(withDuration: 10, animations: {
+            UIView.animate(withDuration: 3, animations: {
                 
                 self.imageView.alpha = 0
                 self.imageBackground.alpha = 0
@@ -170,7 +169,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         view.addSubview(imageBackground)
         view.addSubview(imageView)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
-           // self.playSound(soundName: "+/-")
+            self.playSound(soundName: "launch")
         })
         
         configureBigButtons(bigRight, cornerRadius: 25.0)
@@ -261,7 +260,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         hintLabel.clipsToBounds = true // This ensures that the content inside stays within the rounded corners
     
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 26.0) {
             // Animate hint label's alpha to 1 in 1 second
             UIView.animate(withDuration: 1.0) {
                 self.hintLabel.alpha = 1.0
@@ -269,7 +268,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
         // Schedule a task to hide the hint label after 6 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 33.0) {
             // Animate hint label's alpha back to 0 in 1 second
             UIView.animate(withDuration: 1.0) {
                 self.hintLabel.alpha = 0.0
