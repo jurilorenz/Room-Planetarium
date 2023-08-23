@@ -163,6 +163,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -343,21 +344,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func planetRadius(for planetType: PlanetType) -> Double {
         switch planetType {
-        case .mercury: return RadiusConstants.mercuryRadius
-        case .venus: return RadiusConstants.venusRadius
-        case .earth: return RadiusConstants.earthRadius
-        case .moon: return RadiusConstants.moonRadius
-        case .mars: return RadiusConstants.marsRadius
+        case .mercury: return Planet.mercury.radius
+        case .venus: return Planet.venus.radius
+        case .earth: return Planet.earth.radius
+        case .moon: return Planet.moon.radius
+        case .mars: return Planet.mars.radius
         }
     }
 
     func planetSurface(for planetType: PlanetType) -> String {
         switch planetType {
-        case .mercury: return SurfaceConstants.mercurySurface
-        case .venus: return SurfaceConstants.venusSurface
-        case .earth: return SurfaceConstants.earthSurface
-        case .moon: return SurfaceConstants.moonSurface
-        case .mars: return SurfaceConstants.marsSurface
+        case .mercury: return Planet.mercury.surfaceImage
+        case .venus: return Planet.venus.surfaceImage
+        case .earth: return Planet.earth.surfaceImage
+        case .moon: return Planet.moon.surfaceImage
+        case .mars: return Planet.mars.surfaceImage
         }
     }
     
