@@ -12,20 +12,14 @@ import AVFoundation
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    // MARK: Outlets
     @IBOutlet var sceneView: ARSCNView!
-    
     @IBOutlet var planetLabel: UILabel!
-    
     @IBOutlet var aboutText: UITextView!
-    
     @IBOutlet weak var bigRight: UIButton!
-    
     @IBOutlet weak var bigLeft: UIButton!
-    
     @IBOutlet weak var smallRight: UIButton!
-    
     @IBOutlet weak var smallLeft: UIButton!
-    
     @IBOutlet weak var hintLabel: UILabel!
     
     @IBAction func aboutButtonTapped(_ sender: UIButton) {
@@ -49,7 +43,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
         
         // Call the playSound method with the sound file name "switch"
-        playSound(soundName: "switch")
+        planetariumLogic.playSound(soundName: "switch")
     }
     
     @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
@@ -171,6 +165,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     }
     
+    let planetariumLogic = PlanetariumLogic()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,7 +173,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         view.addSubview(imageBackground)
         view.addSubview(imageView)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
-            self.playSound(soundName: "launch")
+            self.planetariumLogic.playSound(soundName: "launch")
             DispatchQueue.main.asyncAfter(deadline: .now()+1.5, execute: {
                 // Vibrate the device for 1 second
                 let vibrationDuration: TimeInterval = 1.0
@@ -381,23 +376,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         case .mars: return Planet.mars.surfaceImage
         }
     }
-    
-    func playSound(soundName: String) {
-        guard let soundURL = Bundle.main.url(forResource: soundName, withExtension: "wav") else {
-            print("Sound file not found: \(soundName)")
-            return
-        }
-        
-        do {
-            player = try AVAudioPlayer(contentsOf: soundURL)
-            player.prepareToPlay()
-            player.play()
-        } catch {
-            print("Error playing sound: \(error.localizedDescription)")
-        }
-    }
 }
-
 
 enum PlanetType {
     case mercury, venus, earth, moon, mars

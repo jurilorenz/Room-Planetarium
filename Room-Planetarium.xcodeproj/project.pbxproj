@@ -14,6 +14,7 @@
 		2D0A02552A8288CA0090E4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A02542A8288CA0090E4DE /* Assets.xcassets */; };
 		2D0A02582A8288CA0090E4DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0A02562A8288CA0090E4DE /* LaunchScreen.storyboard */; };
 		2D6B5AE02A83998600DB6831 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6B5ADF2A83998600DB6831 /* Constants.swift */; };
+		2DA7C1D62A97836A00C0E2F7 /* PlanetariumLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA7C1D52A97836A00C0E2F7 /* PlanetariumLogic.swift */; };
 		2DEA2E842A96210D001D71F4 /* launch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2DEA2E802A96210C001D71F4 /* launch.wav */; };
 		2DEA2E862A96210D001D71F4 /* switch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2DEA2E822A96210D001D71F4 /* switch.wav */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		2D0A02542A8288CA0090E4DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D0A02572A8288CA0090E4DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D6B5ADF2A83998600DB6831 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2DA7C1D52A97836A00C0E2F7 /* PlanetariumLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetariumLogic.swift; sourceTree = "<group>"; };
 		2DEA2E802A96210C001D71F4 /* launch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = launch.wav; path = "Room-Planetarium/Sounds/launch.wav"; sourceTree = SOURCE_ROOT; };
 		2DEA2E822A96210D001D71F4 /* switch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = switch.wav; path = "Room-Planetarium/Sounds/switch.wav"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -45,7 +47,6 @@
 		2D0A023F2A8288C90090E4DE = {
 			isa = PBXGroup;
 			children = (
-				2D6B5ADE2A83995C00DB6831 /* Supporting Files */,
 				2D0A024A2A8288C90090E4DE /* Room-Planetarium */,
 				2D0A02492A8288C90090E4DE /* Products */,
 			);
@@ -62,6 +63,8 @@
 		2D0A024A2A8288C90090E4DE /* Room-Planetarium */ = {
 			isa = PBXGroup;
 			children = (
+				2DA7C1D42A97833700C0E2F7 /* Model */,
+				2D6B5ADE2A83995C00DB6831 /* Supporting Files */,
 				2D0A024B2A8288C90090E4DE /* AppDelegate.swift */,
 				2D0A024F2A8288C90090E4DE /* ViewController.swift */,
 				2D0A02512A8288C90090E4DE /* Main.storyboard */,
@@ -79,6 +82,14 @@
 				2D6B5ADF2A83998600DB6831 /* Constants.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2DA7C1D42A97833700C0E2F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DA7C1D52A97836A00C0E2F7 /* PlanetariumLogic.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2DEA2E7F2A9620F0001D71F4 /* Sounds */ = {
@@ -166,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0A02502A8288C90090E4DE /* ViewController.swift in Sources */,
+				2DA7C1D62A97836A00C0E2F7 /* PlanetariumLogic.swift in Sources */,
 				2D0A024C2A8288C90090E4DE /* AppDelegate.swift in Sources */,
 				2D6B5AE02A83998600DB6831 /* Constants.swift in Sources */,
 			);
