@@ -53,6 +53,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func switchPlanetButtonTapped(_ sender: UIButton) {
+        // Create a UIImpactFeedbackGenerator instance for generating haptic feedback
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        
         var newPlanet: PlanetType = .mercury
         if !hasTappedSwitchButton {
             hintLabel.text = "Compare celestial body sizes.\nNotice the difference when you switch."
@@ -105,6 +108,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             aboutText.text = facts[currentFactIndex] // Display the first fact for the new planet
         
             updateDisplayedPlanet()
+        
+            // Start the haptic feedback generator
+            feedbackGenerator.prepare()
+            feedbackGenerator.impactOccurred()
         }
     
     var currentPlanet: PlanetType = .earth
@@ -150,6 +157,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 width: size,
                 height: size
                 )
+            
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now()+20, execute: {
@@ -171,6 +179,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         view.addSubview(imageView)
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
             self.playSound(soundName: "launch")
+            DispatchQueue.main.asyncAfter(deadline: .now()+1.5, execute: {
+                // Vibrate the device for 1 second
+                let vibrationDuration: TimeInterval = 1.0
+
+                // Play a vibration sound for the specified duration
+                AudioServicesPlaySystemSoundWithCompletion(kSystemSoundID_Vibrate) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + vibrationDuration) {
+                        // Stop the vibration after the specified duration
+                        AudioServicesDisposeSystemSoundID(kSystemSoundID_Vibrate)
+                    }
+                }
+            })
         })
         
         configureBigButtons(bigRight, cornerRadius: 25.0)
