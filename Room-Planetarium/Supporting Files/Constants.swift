@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Planet Definition
 struct Planet {
     let radius: Double
     let surfaceImage: String
@@ -20,6 +21,7 @@ extension Planet {
     static let mars = Planet(radius: 3.389, surfaceImage: "art.scnassets/mars.jpg")
 }
 
+// MARK: - Planet Facts
 struct PlanetFacts {
     static let facts: [PlanetType: [String]] = [
         .mercury: [
@@ -183,4 +185,11 @@ struct PlanetFacts {
         return facts[planetType] ?? []
     }
 }
+
+
+
+
+
+
+
 

@@ -63,17 +63,33 @@
 		2D0A024A2A8288C90090E4DE /* Room-Planetarium */ = {
 			isa = PBXGroup;
 			children = (
-				2DA7C1D42A97833700C0E2F7 /* Model */,
 				2D6B5ADE2A83995C00DB6831 /* Supporting Files */,
+				2DA7C1D42A97833700C0E2F7 /* Model */,
+				2D2CB6792A989C2B007CC95F /* View */,
+				2D2CB6782A989BF0007CC95F /* Controller */,
 				2D0A024B2A8288C90090E4DE /* AppDelegate.swift */,
-				2D0A024F2A8288C90090E4DE /* ViewController.swift */,
-				2D0A02512A8288C90090E4DE /* Main.storyboard */,
 				2D0A024D2A8288C90090E4DE /* art.scnassets */,
 				2D0A02542A8288CA0090E4DE /* Assets.xcassets */,
 				2D0A02562A8288CA0090E4DE /* LaunchScreen.storyboard */,
 				2DEA2E7F2A9620F0001D71F4 /* Sounds */,
 			);
 			path = "Room-Planetarium";
+			sourceTree = "<group>";
+		};
+		2D2CB6782A989BF0007CC95F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D0A02512A8288C90090E4DE /* Main.storyboard */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D2CB6792A989C2B007CC95F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D0A024F2A8288C90090E4DE /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2D6B5ADE2A83995C00DB6831 /* Supporting Files */ = {
