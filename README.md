@@ -5,7 +5,8 @@ Explore the Cosmos with ROOM Planetarium - An Immersive AR Experience
 
 Welcome to ROOM Planetarium, an immersive and educational augmented reality (AR) app that invites you on a captivating journey through the cosmos. Designed to combine the wonder of space exploration with cutting-edge technology, ROOM Planetarium offers a unique and engaging experience for users of all ages.
 
-Key Features
+Key Features:
+
 🌌 Augmented Reality Exploration: Dive into the universe through augmented reality, allowing you to interact with celestial bodies and space phenomena in your own surroundings.
 
 🚀 Intuitive UI/UX Design: Enjoy a seamless and user-friendly interface that makes navigating through the cosmos a breeze, enhancing your exploration experience.
